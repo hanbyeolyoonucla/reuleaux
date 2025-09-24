@@ -56,7 +56,7 @@ bool Hdf5Dataset::open()
 {
   const char *filepath = this->path_.c_str();
   const char *name = this->filename_.c_str();
-  char fullpath[100];
+  char fullpath[256];
   strcpy(fullpath, filepath);
   strcat(fullpath, name);
   ROS_INFO("Opening map %s", this->filename_.c_str());
