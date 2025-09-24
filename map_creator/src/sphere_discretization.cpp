@@ -657,6 +657,15 @@ void SphereDiscretization::associatePose(std::multimap< std::vector< double >, s
   octree.setInputCloud(cloud);
   octree.addPointsFromInputCloud();
 
+  // Get bounding box for checking search validity
+  ROS_INFO("check3: sphere discretization");
+  double min_x, min_y, min_z, max_x, max_y, max_z;
+  octree.getBoundingBox(min_x, min_y, min_z, max_x, max_y, max_z);
+
+  ROS_DEBUG("X Min: %f Max: %f", min_x, max_x);
+  ROS_DEBUG("Y Min: %f Max: %f", min_y, max_y);
+  ROS_DEBUG("Z Min: %f Max: %f", min_z, max_z);
+
   // add all base poses from cloud to an octree
   for (int i = 0; i < spCenter.size(); i++)
   {

@@ -379,6 +379,7 @@ bool PlaceBase::findbase(std::vector< geometry_msgs::Pose > grasp_poses)
 
   Q_EMIT basePlacementProcessStarted();
   score_ = 0;
+  ROS_INFO("selected method %d", selected_method_);
   if (grasp_poses.size() == 0)
     ROS_ERROR_STREAM("Please provide atleast one grasp pose.");
 
@@ -434,6 +435,7 @@ bool PlaceBase::findbase(std::vector< geometry_msgs::Pose > grasp_poses)
 
       else
       {
+        ROS_INFO("check2: selected method %d", selected_method_);
         sd.associatePose(baseTrnsCol, grasp_poses, PoseColFilter, res);
         ROS_INFO("Size of baseTrnsCol dataset: %lu", baseTrnsCol.size());
         createSpheres(baseTrnsCol, sphereColor, highScoreSp, false);
