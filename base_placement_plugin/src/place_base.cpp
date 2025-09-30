@@ -415,6 +415,7 @@ bool PlaceBase::findbase(std::vector< geometry_msgs::Pose > grasp_poses)
     }
     else
     {
+      auto t0 = ros::SteadyTime::now();
       sphere_discretization::SphereDiscretization sd;
       baseTrnsCol.clear();
       sphereColor.clear();
@@ -461,6 +462,8 @@ bool PlaceBase::findbase(std::vector< geometry_msgs::Pose > grasp_poses)
                  final_base_poses[i].position.x, final_base_poses[i].position.y, final_base_poses[i].position.z, roll,
                  pitch, yaw);
       }
+      auto t1 = ros::SteadyTime::now();
+      ROS_INFO("PlaceBase::findbase total time: %.3f s", (t1 - t0).toSec());
 
       // showBaseLocations(final_base_poses);
       OuputputVizHandler(final_base_poses);

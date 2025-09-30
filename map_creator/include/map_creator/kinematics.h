@@ -3,8 +3,8 @@
 #define IKFAST_NO_MAIN
 
 #define IK_VERSION 61
-#include "globdesopt_ikfast.cpp"
-// #include "meca_ikfast.cpp"
+// #include "globdesopt_ikfast.cpp"
+#include "meca_ikfast.cpp"
 // #include "mh5_ikfast.cpp"
 //#include "abb_irb2400_manipulator_ikfast_solver.cpp"
 //#include "ur5_ikfast.cpp"
